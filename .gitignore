@@ -1,0 +1,17 @@
+# Ignore the PetaLinux project directory created by the script.
+# If you change PROJECT_NAME in project.conf, update this line.
+/exslerate-runtime-2/
+
+# Ignore common PetaLinux generated directories and files
+/build/
+/images/
+/components/
+/downloads/
+/sstate-cache/
+*.log
+
+# Ignore common editor and user-specific files
+*.swp
+*~
+.idea/
+.vscode/
