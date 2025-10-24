@@ -1,0 +1,26 @@
+/include/ "system-conf.dtsi"
+/ {
+    reserved-memory {
+        #address-cells = <2>;
+        #size-cells = <2>;
+        ranges;
+        exslerate_reserved: buffer@30000000 {
+            compatible = "shared-dma-pool";
+            no-map;
+            reg = <0x0 0x30000000 0x0 0x40000000>;
+        };
+    };
+    exslerate: exslerate@a0000000 {
+        compatible = "xlnx,top-1.0";
+        reg = <0x0 0xa0000000 0x0 0x10000>;
+        memory-region = <&exslerate_reserved>;
+    };
+};
+&sdhci1 {
+    status = "okay";
+    xlnx,has-cd = <0x1>;
+    xlnx,has-power = <0x0>;
+    xlnx,has-wp = <0x1>;
+    disable-wp;
+    no-1-8-v;
+};
